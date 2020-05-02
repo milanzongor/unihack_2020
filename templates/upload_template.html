@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block content %}
+  <div class="upload">
+    <h1>upload</h1>
+    <p>nahranie pisomky - sablony</p>
+  </div>
+
+
+<h2>Zvol subor na nahratie pisomky v PDF formate</h2>
+<form method=post enctype=multipart/form-data>
+    <input type=file name=file>
+    <input type=submit value=Upload>
+</form>
+{% endblock %}
+
+
