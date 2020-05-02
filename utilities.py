@@ -58,17 +58,17 @@ def process_template(filename_path: str):
     return
 
 
-def process_page(page, csv_student_info):
+def process_page(page, file_path, csv_student_info):
 
     print(page)
     temp_writer = PdfFileWriter()
 
     # bad for asynchronous
     # temp write to pdv to handle opencv
-    with open('temp.pdf', 'wb') as out:
+    with open(file_path+'temp.pdf', 'wb') as out:
         temp_writer.write(out)
 
-    opencv_image = pdf2opencv('temp.pdf')
+    opencv_image = pdf2opencv(file_path+'temp.pdf')
     is_header = header_check(opencv_image)
 
     if not is_header:
@@ -80,7 +80,7 @@ def process_page(page, csv_student_info):
     student_id = get_student_id(questionCnts)
 
     # remove temp pdf
-    os.remove('temp.pdf')
+    os.remove(file_path+'temp.pdf')
 
     result = {
         "student_id": student_id,
@@ -102,7 +102,7 @@ def split_pdf(file_path, csv_student_info):
     exam_results = []
     for i in range(num_pages):
         page = pdf_reader.getPage(i)
-        is_header, one_result = process_page(page, csv_student_info)
+        is_header, one_result = process_page(page, file_path, csv_student_info)
         if is_header:
             exam_results.append(one_result)
             # todo append more info into name
@@ -114,7 +114,7 @@ def split_pdf(file_path, csv_student_info):
 
 # todo need to do for pypdf2
 def pdf2opencv(path_pdf):
-    pil_images = convert_from_path(path_pdf, dpi=200)
+    pil_images = convert_from_path(path_pdf, dpi=200) # TODO -------------- TOTO je potreba predelat
 
     open_cv_image = np.empty() # will it works?
     for pil_image in pil_images:
