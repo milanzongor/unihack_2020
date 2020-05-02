@@ -50,8 +50,12 @@ def upload():
             path_to_token = os.path.join(app.config['UPLOAD_FOLDER'], token)
             file.save(path_to_token + ".pdf")
 
+            path_to_csv_student_info = '' # todo NEED TO GET CSV FROM SERVER
+
             # gerenate zip inside
-            path_to_zip = utilities.process_scanned_pdf(path_to_token)
+            path_to_zip = utilities.process_scanned_pdf(path_to_token, path_to_csv_student_info)
+
+            # todo delete zip afterwards - some kind of garbage collector?
 
             return uploaded_file(path_to_zip)
     return render_template('upload.html')
