@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block content %}
+   <div class="upload_clean">
+     <h1>nahraj scan pdf</h1>
+     <p>nahranie jednoho pdf ako skenu</p>
+   </div>
+
+    <h2>Step 1: Select a sheet music file (.xml, .mxl or .mid) to upload</h2>
+<p>
+
+<form method=post enctype=multipart/form-data>
+    <input type=file name=file1>
+    <input type=file name=file2>
+    <input type=submit value=Upload>
+</form>
+
+
+ {% endblock %}
