@@ -25,7 +25,8 @@ def home():
 
 @app.route('/uploads/<filename>')
 def uploaded_file(filename):
-    return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
+    print(filename)
+    return send_from_directory('.', filename)
 
 
 @app.route('/upload/', methods=['GET', 'POST'])
@@ -44,17 +45,15 @@ def upload():
 
         # if file and allowed_file(file.filename): # previous
         if file:
-            # filename = secure_filename(file.filename) # previous
-            filename = token_urlsafe(32)
+            token = token_urlsafe(32)
             # instead of saving file with original name, create random token
-            path_to_pdf = os.path.join(app.config['UPLOAD_FOLDER'], filename)
-            file.save(path_to_pdf + ".pdf")
+            path_to_token = os.path.join(app.config['UPLOAD_FOLDER'], token)
+            file.save(path_to_token + ".pdf")
 
-            filename_zip = utilities.process_scanned_pdf(path_to_pdf)
+            # gerenate zip inside
+            path_to_zip = utilities.process_scanned_pdf(path_to_token)
 
-            # return redirect(url_for(os.path.join(app.config['UPLOAD_FOLDER'], filename + ".zip")))
-            # return redirect("../" + UPLOAD_FOLDER + filename + ".zip")
-            return uploaded_file(filename_zip)
+            return uploaded_file(path_to_zip)
     return render_template('upload.html')
 
 
@@ -86,7 +85,7 @@ def upload_clean():
 
 
 @app.route('/upload_template/', methods=['GET', 'POST'])
-def upload():
+def upload_template():
     if request.method == 'POST':
         # check if the post request has the file part
         if 'file' not in request.files:

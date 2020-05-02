@@ -1,16 +1,48 @@
+import os
 
+import numpy as np
+import argparse
+import imutils
+import cv2
+import PyPDF2 as pypdf
+import shutil
+import time
+
+from imutils import contours
+from pdf2image import convert_from_path, convert_from_bytes
+from pdf2image.exceptions import (
+    PDFInfoNotInstalledError,
+    PDFPageCountError,
+    PDFSyntaxError
+)
+from PyPDF2 import PdfFileReader, PdfFileWriter
 from zipfile import ZipFile
 
 
+
 # TODO: split pdf from scanner and return path to sorted exams in zip
-def process_scanned_pdf(path_to_pdf: str):
+def process_scanned_pdf(path_to_token: str):
+
+
+    # create temp directory
+    if not os.path.exists(path_to_token):
+        os.makedirs(path_to_token)
+
+    # print(token)
     # TODO: split pdf
 
-    path_to_zip = path_to_pdf + ".zip"
-    with ZipFile(path_to_zip, 'w') as zipObj:
+    # make zip file
+    shutil.make_archive(path_to_token, 'zip', path_to_token)
+    print('111111111111111111111111')
+    # delete files and directory
+    shutil.rmtree(path_to_token)
+    print('22222222222222222')
+    path_to_zip = path_to_token + ".zip"
+    # with ZipFile(path_to_zip, 'w') as zipObj:
         # TODO: Add multiple files to the zip
-        zipObj.write(path_to_pdf + ".pdf")
-    return path_to_zip
+        # zipObj.write(token + ".pdf")
+    print(path_to_token)
+    return path_to_token + '.zip'
 
 
 # TODO: OPTIONAL: given students list (f1) and template of exam (f2)
@@ -28,28 +60,8 @@ def process_students_and_template(filename1: str, filename2: str):
 
 # TODO: stick template to given pdf
 #  return path to pdf with sticked number form
-def process_template(filename: str):
+def process_template(filename_path: str):
     return
-    return
-import os
-
-import numpy as np
-import argparse
-import imutils
-import cv2
-import PyPDF2 as pypdf
-
-from imutils.perspective import four_point_transform
-from imutils import contours
-from pdf2image import convert_from_path, convert_from_bytes
-from pdf2image.exceptions import (
-    PDFInfoNotInstalledError,
-    PDFPageCountError,
-    PDFSyntaxError
-)
-from PyPDF2 import PdfFileReader, PdfFileWriter
-
-PATH = './uploads'
 
 
 def get_result_zip(pdfs, results):
