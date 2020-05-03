@@ -20,7 +20,42 @@ def allowed_file(file_name):
 
 @app.route('/', methods=['GET'])
 def home():
-    return render_template('layout.html')
+
+    if request.method == 'POST':
+
+        if 'file_scan' in request.files:
+            file_scan = request.files['file_scan']
+            if file_scan.filename == '':
+                flash('Žádná část souboru')
+                return redirect(request.url)
+            if file_scan and allowed_file(file_scan.filename):
+                token = token_urlsafe(32)
+                path_to_token = os.path.join(app.config['UPLOAD_FOLDER'], token)
+                file_scan.save(path_to_token + ".pdf")
+                # TODO: change dummy to useful
+                path_to_zip = utilities.process_scanned_pdf(path_to_token, "")
+                # path_to_zip = utilities.dummy_empty_zip(path_to_token)
+                print('file_scan')
+                return uploaded_file(path_to_zip)
+        elif 'file_header' in request.files:
+            file_header = request.files['file_header']
+            if file_header.filename == '':
+                flash('Žádná část souboru')
+                return redirect(request.url)
+            if file_header and allowed_file(file_header.filename):
+                token = token_urlsafe(32)
+                path_to_token = os.path.join(app.config['UPLOAD_FOLDER'], token)
+                file_header.save(path_to_token + ".pdf")
+                # TODO: change dummy to useful
+                # path_to_zip = utilities.process_template(path_to_token)
+                path_to_modified = utilities.dummy_empty_zip(path_to_token)
+                print('file_header')
+                return uploaded_file(path_to_modified)
+        else:
+            flash('Žádná část souboru')
+            return redirect(request.url)
+
+    return render_template('index.html')
 
 
 @app.route('/uploads/<filename>')

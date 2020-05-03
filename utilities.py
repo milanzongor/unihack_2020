@@ -24,7 +24,18 @@ from pdf2image.exceptions import (
 from PyPDF2 import PdfFileReader, PdfFileWriter
 from zipfile import ZipFile
 
-PATH = './templates/'
+PATH = './templates/' # Todo nakonec to potrebuju :D
+
+
+def dummy_empty_zip(path):
+    if not os.path.exists(path):
+        os.makedirs(path)
+
+    shutil.make_archive(path, 'zip', path)
+
+    path_to_zip = path + ".zip"
+    return path_to_zip
+
 
 
 # TODO: split pdf from scanner and return path to sorted exams in zip
@@ -40,7 +51,7 @@ def process_scanned_pdf(path_to_token: str, path_to_csv_student_info: str):
     shutil.make_archive(path_to_token, 'zip', path_to_token)
 
     # delete files and directory
-    # shutil.rmtree(path_to_token)
+    shutil.rmtree(path_to_token)
 
     path_to_zip = path_to_token + ".zip"
     return path_to_zip
@@ -61,6 +72,28 @@ def process_students_and_template(filename1: str, filename2: str):
 # TODO: stick template to given pdf
 #  return path to pdf with sticked number form
 def process_template(filename_path: str):
+    # merge two pdfs together. Use overlay template
+
+    with open(filename_path, "rb") as inFile, open(PATH+"overlay_template.pdf", "rb") as overlay:
+        original = pypdf.PdfFileReader(inFile)
+        background = original.getPage(0)
+        foreground = pypdf.PdfFileReader(overlay).getPage(0)
+
+        # merge the first two pages
+        background.mergePage(foreground)
+
+        # add all pages to a writer
+        writer = pypdf.PdfFileWriter()
+        for i in range(original.getNumPages()):
+            page = original.getPage(i)
+            writer.addPage(page)
+
+        # write everything in the writer to a file
+
+        modified_path = './uploads/'
+        with open(modified_path + "modified.pdf", "wb") as outFile:
+            writer.write(outFile)
+
     return
 
 
@@ -77,14 +110,11 @@ def process_page(page, file_path, csv_student_info):
 
     is_header = check_header(file_path + 'temp.pdf')
 
-    print('1111111111111111')
     print('Header')
 
     if not is_header:
         print('returning header is false')
         return False, None
-
-    print('222222222222')
 
     student_results = get_results(file_path + 'temp.pdf')
 
