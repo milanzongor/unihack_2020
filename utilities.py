@@ -1,22 +1,22 @@
 import csv
 import os
 import shutil
-import time
-import scipy.misc
 import PyPDF2 as pypdf
-from PyPDF2 import PdfFileReader, PdfFileWriter
-from imutils import contours
-from imutils.perspective import four_point_transform
 
 import cv2
-import fitz
 import imutils
 import numpy as np
-from PyPDF2 import PdfFileReader, PdfFileWriter
+
 from imutils import contours
 from imutils.perspective import four_point_transform
 
 # from pdf2image import convert_from_path, convert_from_bytes # problems with poppler
+from pdf2image import convert_from_path, convert_from_bytes
+from pdf2image.exceptions import (
+    PDFInfoNotInstalledError,
+    PDFPageCountError,
+    PDFSyntaxError
+)
 
 # PATH = './templates/'
 
@@ -202,25 +202,12 @@ def get_results(pdf_path):
     return [student_id, exam_points, grade]
 
 
-def pix2np(pix):
-    im = np.frombuffer(pix.samples, dtype=np.uint8).reshape(pix.h, pix.w, pix.n)
-    im = np.ascontiguousarray(im[..., [2, 1, 0]])  # rgb to bgr
-    return im
-
-
 def pdf2opencv(path_pdf):
-    doc = fitz.open(path_pdf)
-    page = doc.loadPage(0)  # number of page
-
-    zoom = 3  # zoom factor for better resolution
-    mat = fitz.Matrix(zoom, zoom)
-    pix = page.getPixmap(matrix=mat, )
-
-    open_cv_image = pix2np(pix)
-
-    # pil_images = convert_from_path(path_pdf, dpi=200)
-    return open_cv_image
-
+    pil_images = convert_from_path(path_pdf, dpi=200)
+    for pil_image in pil_images:
+        open_cv_image = np.array(pil_image)
+        # Convert RGB to BGR
+    return open_cv_image[:, :, ::-1].copy()
 
 def delete_outher_box(thresh):
     cnts = cv2.findContours(thresh.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
