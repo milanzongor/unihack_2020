@@ -1,18 +1,12 @@
 import csv
 import os
 import shutil
-import time
-import scipy.misc
 import PyPDF2 as pypdf
-from PyPDF2 import PdfFileReader, PdfFileWriter
-from imutils import contours
-from imutils.perspective import four_point_transform
 
 import cv2
-import fitz
 import imutils
 import numpy as np
-from PyPDF2 import PdfFileReader, PdfFileWriter
+
 from imutils import contours
 from imutils.perspective import four_point_transform
 
