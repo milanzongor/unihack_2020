@@ -18,6 +18,7 @@ Pillow==7.1.2
 pipenv==2018.10.13
 pylint==2.1.1
 PyPDF2==1.26.0
+scipy==1.4.1
 six==1.14.0
 virtualenv==16.0.0
 virtualenv-clone==0.4.0
