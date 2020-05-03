@@ -127,11 +127,13 @@ def split_pdf(file_path, csv_student_info):
         if is_header:
             exam_results.append(one_result)
             # todo append more info into name
+            pdf_writer.addPage(page)
             with open(file_path + '/' + str(one_result['student_id']) + '.pdf', 'wb') as out:
                 pdf_writer.write(out)
             # Create new empty pdffilewriter
             pdf_writer = PdfFileWriter()
-        pdf_writer.addPage(page)
+        else:
+            pdf_writer.addPage(page)
 
     if len(exam_results) != 0:
         keys = exam_results[0].keys()
