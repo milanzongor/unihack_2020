@@ -1,30 +1,19 @@
-import os
-
 import csv
-import numpy as np
-import argparse
-import imutils
-import cv2
-import PyPDF2 as pypdf
+import os
 import shutil
-import time
-import scipy.misc
-
-import fitz
-# from pdf2image import convert_from_path, convert_from_bytes # problems with poppler
-
-
-from imutils import contours
-from imutils.perspective import four_point_transform
-from pdf2image.exceptions import (
-    PDFInfoNotInstalledError,
-    PDFPageCountError,
-    PDFSyntaxError
-)
-from PyPDF2 import PdfFileReader, PdfFileWriter
 from zipfile import ZipFile
 
-PATH = './templates/'
+import cv2
+import fitz
+import imutils
+import numpy as np
+from PyPDF2 import PdfFileReader, PdfFileWriter
+from imutils import contours
+from imutils.perspective import four_point_transform
+
+# from pdf2image import convert_from_path, convert_from_bytes # problems with poppler
+
+# PATH = './templates/'
 
 
 def dummy_empty_zip(path):
@@ -35,7 +24,6 @@ def dummy_empty_zip(path):
 
     path_to_zip = path + ".zip"
     return path_to_zip
-
 
 
 # TODO: split pdf from scanner and return path to sorted exams in zip
@@ -266,7 +254,6 @@ def parse_header_elements(pdf_path):
 
     cnts = get_contours(edged_cropped)
     docCnt = None
-
 
     docCntArr = []
 

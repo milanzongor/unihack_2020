@@ -1,12 +1,12 @@
 import os
 from secrets import token_urlsafe
 
-from flask import Flask, flash, request, redirect, render_template, send_from_directory
+from flask import Flask, flash, request, redirect, render_template, send_from_directory, send_file
 from flask_scss import Scss
 
 import utilities
 
-UPLOAD_FOLDER = './uploads/'
+UPLOAD_FOLDER = './static/uploads/'
 ALLOWED_EXTENSIONS = {'pdf', 'csv'}
 
 app = Flask(__name__)
@@ -34,10 +34,9 @@ def home():
             if file_scan and allowed_file(file_scan.filename):
                 token = token_urlsafe(32)
                 path_to_token = os.path.join(app.config['UPLOAD_FOLDER'], token)
+                print(path_to_token)
                 file_scan.save(path_to_token + ".pdf")
-                # TODO: change dummy to useful
-                # path_to_zip = utilities.process_scanned_pdf(path_to_token, "")
-                path_to_zip = utilities.dummy_empty_zip(path_to_token)
+                path_to_zip = utilities.process_scanned_pdf(path_to_token, "")
                 print('file_scan')
                 return uploaded_file(path_to_zip)
         elif 'file_header' in request.files:
@@ -50,8 +49,8 @@ def home():
                 path_to_token = os.path.join(app.config['UPLOAD_FOLDER'], token)
                 file_header.save(path_to_token + ".pdf")
                 # TODO: change dummy to useful
-                # path_to_zip = utilities.process_template(path_to_token)
-                path_to_zip = utilities.dummy_empty_zip(path_to_token)
+                path_to_zip = utilities.process_template(path_to_token)
+                # path_to_zip = utilities.dummy_empty_zip(path_to_token)
                 print('file_header')
                 return uploaded_file(path_to_zip)
         else:
@@ -61,10 +60,11 @@ def home():
     return render_template('index.html')
 
 
-@app.route('/uploads/<filename>')
+@app.route(UPLOAD_FOLDER[1:] + '<filename>')
 def uploaded_file(filename):
     print(filename)
-    return send_from_directory('.', filename)
+    # return send_from_directory(UPLOAD_FOLDER, filename)
+    return send_file(filename, as_attachment=True, attachment_filename='vysledek.zip')
 
 
 @app.route('/upload/', methods=['GET', 'POST'])
@@ -88,7 +88,7 @@ def upload():
             path_to_token = os.path.join(app.config['UPLOAD_FOLDER'], token)
             file.save(path_to_token + ".pdf")
 
-            path_to_csv_student_info = '' # todo NEED TO GET CSV FROM SERVER
+            path_to_csv_student_info = ''  # todo NEED TO GET CSV FROM SERVER
 
             # gerenate zip inside
             path_to_zip = utilities.process_scanned_pdf(path_to_token, path_to_csv_student_info)
