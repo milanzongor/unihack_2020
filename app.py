@@ -47,10 +47,17 @@ def home():
                 path_to_token = os.path.join(app.config['UPLOAD_FOLDER'], token)
                 file_header.save(path_to_token + ".pdf")
                 # TODO: change dummy to useful
+<<<<<<< Updated upstream
                 # path_to_zip = utilities.process_template(path_to_token)
                 path_to_modified = utilities.dummy_empty_zip(path_to_token)
                 print('file_header')
                 return uploaded_file(path_to_modified)
+=======
+                path_to_modified__pdf = utilities.process_template(path_to_token)
+                # path_to_zip = utilities.dummy_empty_zip(path_to_token)
+                print(f'file_header = {path_to_modified__pdf}')
+                return uploaded_file(path_to_modified__pdf)
+>>>>>>> Stashed changes
         else:
             flash('Žádná část souboru')
             return redirect(request.url)
