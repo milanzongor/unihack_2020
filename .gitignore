@@ -3,4 +3,5 @@ venv/
 __pycache__/
 .DS_Store
 uploads/*
+static/uploads/*
 !uploads/.gitkeep
