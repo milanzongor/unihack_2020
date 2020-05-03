@@ -23,6 +23,17 @@ from zipfile import ZipFile
 PATH = './templates/'
 
 
+def dummy_empty_zip(path):
+    if not os.path.exists(path):
+        os.makedirs(path)
+
+    shutil.make_archive(path, 'zip', path)
+
+    path_to_zip = path + ".zip"
+    return path_to_zip
+
+
+
 # TODO: split pdf from scanner and return path to sorted exams in zip
 def process_scanned_pdf(path_to_token: str, path_to_csv_student_info: str):
     # create temp directory
@@ -151,6 +162,7 @@ def get_results(pdf_path):
     return [student_id, exam_points, grade]
 
 def pdf2opencv(path_pdf):
+    # TODO: prerobit mozno do ineho, nech nepouzivame opencv
     pil_images = convert_from_path(path_pdf, dpi=200)
     for pil_image in pil_images:
         open_cv_image = np.array(pil_image)

@@ -35,7 +35,10 @@ def home():
                 token = token_urlsafe(32)
                 path_to_token = os.path.join(app.config['UPLOAD_FOLDER'], token)
                 file_scan.save(path_to_token + ".pdf")
-                path_to_zip = utilities.process_scanned_pdf(path_to_token, "")
+                # TODO: change dummy to useful
+                # path_to_zip = utilities.process_scanned_pdf(path_to_token, "")
+                path_to_zip = utilities.dummy_empty_zip(path_to_token)
+                print('file_scan')
                 return uploaded_file(path_to_zip)
         elif 'file_header' in request.files:
             file_header = request.files['file_header']
@@ -46,7 +49,10 @@ def home():
                 token = token_urlsafe(32)
                 path_to_token = os.path.join(app.config['UPLOAD_FOLDER'], token)
                 file_header.save(path_to_token + ".pdf")
-                path_to_zip = utilities.process_template(path_to_token)
+                # TODO: change dummy to useful
+                # path_to_zip = utilities.process_template(path_to_token)
+                path_to_zip = utilities.dummy_empty_zip(path_to_token)
+                print('file_header')
                 return uploaded_file(path_to_zip)
         else:
             flash('Žádná část souboru')
