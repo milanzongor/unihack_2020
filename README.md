@@ -59,4 +59,4 @@ There is wide range for improvement in our app. We would be grad for anybody, wh
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
