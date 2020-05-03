@@ -1,5 +1,6 @@
 import os
-from secrets import token_urlsafe
+import random
+#from secrets import token_urlsafe
 from flask import Flask, flash, request, redirect, render_template, send_file
 from flask_scss import Scss
 
@@ -15,6 +16,11 @@ Scss(app, static_dir='static', asset_dir='assets')
 app.secret_key = "posielaj vsetky testy 223 unihack"
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['MAX_CONTENT_LENGTH'] = 100 * 1024 * 1024
+
+
+def token_urlsafe(num):
+    return ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(num))	
+
 
 
 def allowed_file(file_name):
