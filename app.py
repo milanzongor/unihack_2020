@@ -1,7 +1,7 @@
 import os
 from secrets import token_urlsafe
 
-from flask import Flask, flash, request, redirect, render_template, send_from_directory, send_file
+from flask import Flask, flash, request, redirect, render_template, send_file
 from flask_scss import Scss
 
 import utilities
