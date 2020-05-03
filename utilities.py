@@ -8,9 +8,13 @@ import cv2
 import PyPDF2 as pypdf
 import shutil
 import time
+import scipy.misc
+
+import fitz
+# from pdf2image import convert_from_path, convert_from_bytes # problems with poppler
+
 
 from imutils import contours
-from pdf2image import convert_from_path, convert_from_bytes
 from imutils.perspective import four_point_transform
 from pdf2image.exceptions import (
     PDFInfoNotInstalledError,
@@ -85,8 +89,10 @@ def process_page(page, file_path, csv_student_info):
     is_header = check_header(file_path + 'temp.pdf')
 
     print('1111111111111111')
+    print('Header')
 
     if not is_header:
+        print('returning header is false')
         return False, None
 
     print('222222222222')
@@ -121,18 +127,18 @@ def split_pdf(file_path, csv_student_info):
         if is_header:
             exam_results.append(one_result)
             # todo append more info into name
-            print(f'Writing!!!!! to {file_path + "/" + str(one_result["student_id"])}')
             with open(file_path + '/' + str(one_result['student_id']) + '.pdf', 'wb') as out:
                 pdf_writer.write(out)
             # Create new empty pdffilewriter
             pdf_writer = PdfFileWriter()
         pdf_writer.addPage(page)
 
-    keys = exam_results[0].keys()
-    with open(file_path + '/' + 'results.csv', 'w') as output_file:
-        dict_writer = csv.DictWriter(output_file, keys)
-        dict_writer.writeheader()
-        dict_writer.writerows(exam_results)
+    if len(exam_results) != 0:
+        keys = exam_results[0].keys()
+        with open(file_path + '/' + 'results.csv', 'w') as output_file:
+            dict_writer = csv.DictWriter(output_file, keys)
+            dict_writer.writeheader()
+            dict_writer.writerows(exam_results)
 
 
 # --------------------------- OpenCV and image processing ----------------------------------
@@ -145,35 +151,43 @@ def get_results(pdf_path):
     student_id_table = threshold_image(student_id_table)
     student_id_table = delete_outher_box(student_id_table)
     student_id = get_number(student_id_table, 6, 10)
-    print(student_id)
 
     exam_points_table = four_point_transform(gray_cropped, rectangle_elements[1].reshape(4, 2))
     exam_points_table = threshold_image(exam_points_table)
     exam_points_table = delete_outher_box(exam_points_table)
     exam_points = get_number(exam_points_table, rows=2, cols=10)
-    print(exam_points)
 
     grade_table = four_point_transform(gray_cropped, rectangle_elements[2].reshape(4, 2))
     grade_table = threshold_image(grade_table)
     grade_table = delete_outher_box(grade_table)
     grade = get_number(grade_table, rows=1, cols=6)
-    print(grade)
 
     return [student_id, exam_points, grade]
 
+
+def pix2np(pix):
+    im = np.frombuffer(pix.samples, dtype=np.uint8).reshape(pix.h, pix.w, pix.n)
+    im = np.ascontiguousarray(im[..., [2, 1, 0]])  # rgb to bgr
+    return im
+
+
 def pdf2opencv(path_pdf):
-    # TODO: prerobit mozno do ineho, nech nepouzivame opencv
-    pil_images = convert_from_path(path_pdf, dpi=200)
-    for pil_image in pil_images:
-        open_cv_image = np.array(pil_image)
-        # Convert RGB to BGR
-    return open_cv_image[:, :, ::-1].copy()
+    doc = fitz.open(path_pdf)
+    page = doc.loadPage(0)  # number of page
+
+    zoom = 3  # zoom factor for better resolution
+    mat = fitz.Matrix(zoom, zoom)
+    pix = page.getPixmap(matrix=mat, )
+
+    open_cv_image = pix2np(pix)
+
+    # pil_images = convert_from_path(path_pdf, dpi=200)
+    return open_cv_image
 
 
 def delete_outher_box(thresh):
     cnts = cv2.findContours(thresh.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
     cnts = imutils.grab_contours(cnts)
-    print("Number of contours:", len(cnts))
 
     if len(cnts) == 1:
         cv2.drawContours(thresh, cnts, -1, (0, 0, 0), 3)
@@ -232,6 +246,7 @@ def get_number(thresh, rows, cols):
 def check_header(pdf_path):
     rectangle_elements, _ = parse_header_elements(pdf_path)
     if len(rectangle_elements) >= 3:
+        print('Header is ok')
         return True
     else:
         return False
@@ -252,7 +267,6 @@ def parse_header_elements(pdf_path):
     cnts = get_contours(edged_cropped)
     docCnt = None
 
-    print("[INFO] --- Number of contours found:", len(cnts))
 
     docCntArr = []
 
@@ -264,6 +278,6 @@ def parse_header_elements(pdf_path):
             approx = cv2.approxPolyDP(c, 0.02 * peri, True)
 
             if len(approx) == 4 and cv2.contourArea(c) > 9000:
-
+                print('IS OK !!!!!!!!!!!!!!!!!!')
                 docCntArr.append(approx)
     return docCntArr, gray_cropped
