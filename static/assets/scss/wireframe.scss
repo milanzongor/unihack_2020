@@ -4,6 +4,8 @@
 * Copyright 2014-2018 Pingendo (https://pingendo.com)
 */
  
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;0,700;0,900;1,500;1,700;1,900&display=swap');
+
 // Options
 // 
 // Quickly modify global styling by enabling or disabling optional features.
@@ -41,15 +43,15 @@ $link-color: #8e8e8e;
 $font-family-base: Arial, Helvetica, sans-serif;
 $headings-font-family: Arial, Helvetica, sans-serif;
 $display-font-family: $font-family-base;
-$font-weight-normal: 200;
-$headings-font-weight: 200;
+$font-weight-normal: 400;
+$headings-font-weight: $font-weight-normal;
 $headings-font-weight: $font-weight-normal;
 $lead-font-size:   1.30rem;
-$lead-font-weight:   300;
+$lead-font-weight:   $font-weight-normal;
 $spacer: 1.5rem;
-$font-size-base: 1rem;
+$text-richard: 2.0rem;
 $font-weight-light: 300;
-$font-weight-bold: 700;
+$font-weight-bold: 1000;
 $font-weight-base: $font-weight-normal;
 $line-height-base: 1.5;
 $headings-line-height: 1.2;
