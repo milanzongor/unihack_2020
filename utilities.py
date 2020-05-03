@@ -1,7 +1,12 @@
 import csv
 import os
 import shutil
-from zipfile import ZipFile
+import time
+import scipy.misc
+import PyPDF2 as pypdf
+from PyPDF2 import PdfFileReader, PdfFileWriter
+from imutils import contours
+from imutils.perspective import four_point_transform
 
 import cv2
 import fitz
@@ -15,6 +20,15 @@ from imutils.perspective import four_point_transform
 
 # PATH = './templates/'
 
+from imutils import contours
+from imutils.perspective import four_point_transform
+from pdf2image.exceptions import (
+    PDFInfoNotInstalledError,
+    PDFPageCountError,
+    PDFSyntaxError
+)
+from PyPDF2 import PdfFileReader, PdfFileWriter
+from zipfile import ZipFile
 
 PATH = './templates/' # Todo nakonec to potrebuju :D
 
@@ -66,7 +80,7 @@ def process_students_and_template(filename1: str, filename2: str):
 def process_template(filename_path: str):
     # merge two pdfs together. Use overlay template
 
-    with open(filename_path, "rb") as inFile, open(PATH+"overlay_template.pdf", "rb") as overlay:
+    with open(filename_path+'.pdf', "rb") as inFile, open(PATH+"overlay_template.pdf", "rb") as overlay:
         original = pypdf.PdfFileReader(inFile)
         background = original.getPage(0)
         foreground = pypdf.PdfFileReader(overlay).getPage(0)
@@ -76,17 +90,26 @@ def process_template(filename_path: str):
 
         # add all pages to a writer
         writer = pypdf.PdfFileWriter()
+
+        # writer.addPage(foreground)
+
         for i in range(original.getNumPages()):
             page = original.getPage(i)
             writer.addPage(page)
 
         # write everything in the writer to a file
+        modified_filename = filename_path + "modified"
 
-        modified_path = './uploads/'
-        with open(modified_path + "modified.pdf", "wb") as outFile:
+        with open(modified_filename+'.pdf', "wb") as outFile:
             writer.write(outFile)
 
-    return
+
+        path_to_zip = modified_filename + ".zip"
+        with ZipFile(path_to_zip, 'w') as zipObj:
+            # TODO: Add multiple files to the zip
+            zipObj.write(modified_filename +'.pdf')
+        return path_to_zip
+
 
 
 def process_page(page, file_path, csv_student_info):
@@ -106,6 +129,7 @@ def process_page(page, file_path, csv_student_info):
 
     if not is_header:
         print('returning header is false')
+        os.remove(file_path + 'temp.pdf')
         return False, None
 
     student_results = get_results(file_path + 'temp.pdf')
