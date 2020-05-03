@@ -1,6 +1,8 @@
 import os
 from secrets import token_urlsafe
+
 from flask import Flask, flash, request, redirect, render_template, send_from_directory
+from flask_scss import Scss
 
 import utilities
 
@@ -8,7 +10,9 @@ UPLOAD_FOLDER = './uploads/'
 ALLOWED_EXTENSIONS = {'pdf', 'csv'}
 
 app = Flask(__name__)
-app.secret_key = "posielaj vsetky testy"
+# !!! Dont forget to generate it manually nex time, if this shit doesnt work !!!
+Scss(app, static_dir='static', asset_dir='assets')
+app.secret_key = "posielaj vsetky testy 223 unihack"
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['MAX_CONTENT_LENGTH'] = 100 * 1024 * 1024
 
@@ -18,9 +22,37 @@ def allowed_file(file_name):
            file_name.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 
-@app.route('/', methods=['GET'])
+@app.route('/', methods=['GET', 'POST'])
 def home():
-    return render_template('layout.html')
+    if request.method == 'POST':
+
+        if 'file_scan' in request.files:
+            file_scan = request.files['file_scan']
+            if file_scan.filename == '':
+                flash('Žádná část souboru')
+                return redirect(request.url)
+            if file_scan and allowed_file(file_scan.filename):
+                token = token_urlsafe(32)
+                path_to_token = os.path.join(app.config['UPLOAD_FOLDER'], token)
+                file_scan.save(path_to_token + ".pdf")
+                path_to_zip = utilities.process_scanned_pdf(path_to_token, "")
+                return uploaded_file(path_to_zip)
+        elif 'file_header' in request.files:
+            file_header = request.files['file_header']
+            if file_header.filename == '':
+                flash('Žádná část souboru')
+                return redirect(request.url)
+            if file_header and allowed_file(file_header.filename):
+                token = token_urlsafe(32)
+                path_to_token = os.path.join(app.config['UPLOAD_FOLDER'], token)
+                file_header.save(path_to_token + ".pdf")
+                path_to_zip = utilities.process_template(path_to_token)
+                return uploaded_file(path_to_zip)
+        else:
+            flash('Žádná část souboru')
+            return redirect(request.url)
+
+    return render_template('index.html')
 
 
 @app.route('/uploads/<filename>')
@@ -54,7 +86,7 @@ def upload():
             path_to_zip = utilities.process_scanned_pdf(path_to_token)
 
             return uploaded_file(path_to_zip)
-    return render_template('upload.html')
+    return render_template('templates_/upload.html')
 
 
 @app.route('/upload_clean/', methods=['GET', 'POST'])
@@ -81,7 +113,7 @@ def upload_clean():
             filename_zip = utilities.process_students_and_template(filename1, filename2)
 
             return uploaded_file(filename_zip)
-    return render_template('upload_clean.html')
+    return render_template('templates_/upload_clean.html')
 
 
 @app.route('/upload_template/', methods=['GET', 'POST'])
@@ -112,7 +144,7 @@ def upload_template():
             # return redirect(url_for(os.path.join(app.config['UPLOAD_FOLDER'], filename + ".zip")))
             # return redirect("../" + UPLOAD_FOLDER + filename + ".zip")
             return uploaded_file(filename_zip)
-    return render_template('upload.html')
+    return render_template('templates_/upload.html')
 
 
 if __name__ == '__main__':
