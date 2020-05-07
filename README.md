@@ -23,6 +23,31 @@ python3 app.py
 
 There is wide range for improvement in our app. We would be grad for anybody, who wants to contribute.
 
+## TODO
+
+#### PDF related
+ * [x] Merge two pdfs into one - creating overlay with our structure
+ * [x] Split pdfs by our structure
+ * [ ] Try to use different structure of code because problems with poppler
+ * [x] Export splitted pdfs of students and csv file with results
+ 
+#### Data extractions
+ * [x] Extract information from our structure - ID of student, grade, points
+ * [ ] Add posisions to written ID or name (username) and try to extract it with CNN model learnt on emnist - Hany have 98 % model
+ * [ ] Solve czech characters, either
+   * find different dataset with czech diacritics
+   * enrich emnist dataset by letters with diacritics 
+   * Add second clasifier, that would recognize diacritics  / accute(') / carron(ˇ) / none  / 
+   * Create our own, small dataset (maybe adding the diacritics to current dataset)
+    and use methods here: https://arxiv.org/pdf/1904.08095.pdf
+    
+#### Web related
+ * [x] Write functional web communication.
+ * [ ] Get rid of the assets file structure!!! IMPORTANT - not good
+ * [ ] Fix Flask
+ * [ ] Asynchronous file upload (maybe skip to next)
+ * [ ] Rewrite the application into django
+
 ## Authors
 
 * **Samuel Fabo** - *web app developemet* - developed the Flask application
