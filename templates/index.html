@@ -7,7 +7,7 @@
     <!-- PAGE settings -->
     <title>Pošli Testy</title>
     <meta name="description"
-          content="Aplikace, která učitelum umožní strojově zetřídit opravené zadání/písemky a poskytne známky studentú ke stažení. Stačí, když studenti vyplní podpisovou hlavičku a naše aplikace zadání roztřídí dle čísla. Takisto vygeneruje seznam známek pro všechny studenty. Tenhle seznam je možné vložit do školních stránek jako je Moodle, Edupage, Bakalri.cz n.j.">
+          content="Aplikace, která učitelum umožní strojově setřídit opravené zadání/písemky a poskytne známky studentú ke stažení. Stačí, když studenti vyplní podpisovou hlavičku a naše aplikace zadání roztřídí dle čísla. Takisto vygeneruje seznam známek pro všechny studenty. Tenhle seznam je možné vložit do školních stránek jako je Moodle, Edupage, Bakalri.cz n.j.">
     <meta name="keywords" content="Pošli testy aplikace učitel učitelé písemky písemka zadání domácí ukol ">
     <meta name="author"
           content="Petra Rudolfová - video & dizajn, Richard Štětka - Web dizajn, Jiří Hanuš - backend, Milan Zongor - backend a rozpoznávání znakú OMR, Samuel Fabo - DevOps, lepení a ladění aplikace">
@@ -101,11 +101,11 @@
         <div class="row">
             <div class="col-md-12">
                 {#                <img class="img-fluid d-block mx-auto w-50" src="static/assets/poslitesty_cerny.png">#}
-                <p class="lead text-center">Aplikace, která učitelům umožní <b>strojově zetřídit opravené
+                <p class="lead text-center">Aplikace, která učitelům umožní <b>strojově setřídit opravené
                     zadání/písemky</b> a poskytne <b>známky studentů</b> ke stažení.
                     Stačí, když studenti vyplní <i>podpisovou hlavičku</i> a vy jako učitel vyplníte <i>výslednou
                         známku</i>.
-                    Naše aplikace pak opravené zadání/písemky zetřídí dle čísla studenta a
+                    Naše aplikace pak opravené zadání/písemky setřídí dle čísla studenta a
                     vygeneruje <b>seznam známek ze zadání/písemky</b> ke všem studentům.</p>
                 <p class="lead text-center">Tenhle seznam je možné vložit do školních aplikací jako je <b>Moodle,
                     Edupage, Bakálři</b> nebo jakákoli školní aplikace podporující import .csv souboru se známkami.</p>
@@ -241,85 +241,9 @@
         </div>
     </div>
 </div>
-<div class="py-5" style="" id="zašli_pdf">
-    <div class="container">
-        <div class="row mb-3">
-            <div class="text-center mx-auto p-4 col-lg-6 col-md-10 rounded" style="">
-                <h2 class="text-body" id="sken_pdf">Zašli opravené testy v PDF</h2>
-                <p class="text-body">&nbsp;Budou roztřízeny podle ID studenta, uloženy do systému a výsledky budou
-                    rozeslány mezi studenty a jejich rodiče.</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="mx-auto col-lg-0 col-md-0 col-0">
-
-                <!-- Button trigger modal -->
-                <button type="button"
-                        class="btn btn-secondary d-flex flex-column justify-content-center flex-grow-1 align-items-center text-light"
-                        href="#"
-                        style="	box-shadow: 0px 4px 5px  gray;	background-image: url(static/assets/buttony.jpg);
-                    background-position: top left;	background-size: 100%;	background-repeat: repeat;"
-                        data-toggle="modal" data-target="#scanModal">
-                    Zaslat opravené testy
-                </button>
-
-                <!-- Modal -->
-                <div class="modal fade" id="scanModal" tabindex="-1" role="dialog" aria-labelledby="scanModalLabel"
-                     aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="scanModalLabel">Nahrát opravené testy</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-
-                                <form class="d-flex flex-column justify-content-center flex-grow-1 align-items-center"
-                                      method=post enctype=multipart/form-data>
-                                    <input type=file name=file_scan>
-                                    <div class="col-12 form-group">
-                                        <input
-                                                type=submit value="Nahrát soubor">
-                                    </div>
-                                </form>
-                                <hr>
-                                <h5>Pozor na typ souboru! Zatím podporujeme jen PDF.</h5>
-                            </div>
-
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Zavřít</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 
 
-<div class="py-5 text-center text-md-right"
-     style="	background-image: url(static/assets/2.0.jpg);	background-position: right bottom;	background-size: cover;	background-repeat: repeat;	background-attachment: fixed;">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h1 class="mb-3 text-center">Naše aplikace Vám ulehčí práci!</h1>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <p class="lead text-center">Nebojte se ji vyzkoušet, je bezplatná a stačí jen pár jednoduchých
-                    kliků.</p>
-                <p class="lead text-center">Naše aplikace je pod svobodnou licencí (opensource), takže ji můžete
-                    stáhnout a upravit podle svých potřeb. Aplikace má mnoho použití, ale předností jsou velké skupinové
-                    testy. Naše zaměření je však taky pro střední a základní školy.</p>
 
-            </div>
-        </div>
-    </div>
-</div>
 <div class="py-5" id="nalep_pdf">
     <div class="container">
         <div class="row mb-3">
@@ -382,6 +306,114 @@
 
     </div>
 </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="py-5 text-center text-md-right"
+     style="	background-image: url(static/assets/2.0.jpg);	background-position: right bottom;	background-size: cover;	background-repeat: repeat;	background-attachment: fixed;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="mb-3 text-center">Naše aplikace Vám ulehčí práci!</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <p class="lead text-center">Nebojte se ji vyzkoušet, je bezplatná a stačí jen pár jednoduchých
+                    kliků.</p>
+                <p class="lead text-center">Naše aplikace je pod svobodnou licencí (opensource), takže ji můžete
+                    stáhnout a upravit podle svých potřeb. Aplikace má mnoho použití, ale předností jsou velké skupinové
+                    testy. Naše zaměření je však taky pro střední a základní školy.</p>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<div class="py-5" style="" id="zašli_pdf">
+    <div class="container">
+        <div class="row mb-3">
+            <div class="text-center mx-auto p-4 col-lg-6 col-md-10 rounded" style="">
+                <h2 class="text-body" id="sken_pdf">Zašli opravené testy v PDF</h2>
+                <p class="text-body">&nbsp;Budou roztřízeny podle ID studenta, uloženy do systému a výsledky budou
+                    rozeslány mezi studenty a jejich rodiče.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="mx-auto col-lg-0 col-md-0 col-0">
+
+                <!-- Button trigger modal -->
+                <button type="button"
+                        class="btn btn-secondary d-flex flex-column justify-content-center flex-grow-1 align-items-center text-light"
+                        href="#"
+                        style="	box-shadow: 0px 4px 5px  gray;	background-image: url(static/assets/buttony.jpg);
+                    background-position: top left;	background-size: 100%;	background-repeat: repeat;"
+                        data-toggle="modal" data-target="#scanModal">
+                    Zaslat opravené testy
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="scanModal" tabindex="-1" role="dialog" aria-labelledby="scanModalLabel"
+                     aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="scanModalLabel">Nahrát opravené testy</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+
+                                <form class="d-flex flex-column justify-content-center flex-grow-1 align-items-center"
+                                      method=post enctype=multipart/form-data>
+                                    <input type=file name=file_scan>
+                                    <div class="col-12 form-group">
+                                        <input
+                                                type=submit value="Nahrát soubor">
+                                    </div>
+                                </form>
+                                <hr>
+                                <h5>Pozor na typ souboru! Zatím podporujeme jen PDF.</h5>
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Zavřít</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="py-5 text-center text-md-right"
+     style="	background-image: url(static/assets/2.0.jpg);	background-position: right bottom;
+     background-size: cover;	background-repeat: repeat;	background-attachment: fixed;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4"></div>
+            <div class="col-md-4"></div>
+        </div>
+    </div>
 </div>
 
 
