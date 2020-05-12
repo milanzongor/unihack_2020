@@ -2,12 +2,27 @@
 <html>
 
 <head>
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-166125022-1"></script>
+	<script>
+  window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+        gtag('config', 'UA-166125022-1');
+	</script>
+
+
+
+
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- PAGE settings -->
     <title>Pošli Testy</title>
     <meta name="description"
-          content="Aplikace, která učitelum umožní strojově setřídit opravené zadání/písemky a poskytne známky studentú ke stažení. Stačí, když studenti vyplní podpisovou hlavičku a naše aplikace zadání roztřídí dle čísla. Takisto vygeneruje seznam známek pro všechny studenty. Tenhle seznam je možné vložit do školních stránek jako je Moodle, Edupage, Bakalri.cz n.j.">
+          content="Aplikace, která učitelum umožní strojově seřadit opravené zadání/písemky a poskytne známky studentú ke stažení. Stačí, když studenti vyplní podpisovou hlavičku a naše aplikace zadání roztřídí dle čísla. Takisto vygeneruje seznam známek pro všechny studenty. Tenhle seznam je možné vložit do školních stránek jako je Moodle, Edupage, Bakalri.cz n.j.">
     <meta name="keywords" content="Pošli testy aplikace učitel učitelé písemky písemka zadání domácí ukol ">
     <meta name="author"
           content="Petra Rudolfová - video & dizajn, Richard Štětka - Web dizajn, Jiří Hanuš - backend, Milan Zongor - backend a rozpoznávání znakú OMR, Samuel Fabo - DevOps, lepení a ladění aplikace">
@@ -15,27 +30,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
           type="text/css">
     <link rel="stylesheet" href="static/wireframe.css">
-
-
-    <script>
-        (function (i, s, o, g, r, a, m) {
-            i[‘GoogleAnalyticsObject’]
-            = r;
-            i[r] = i[r] || function () {
-                (i[r].q = i[r].q || []).push(arguments)
-            }, i[r].l = 1 * new Date();
-            a = s.createElement(o),
-                m = s.getElementsByTagName(o)[0];
-            a.async = 1;
-            a.src = g;
-            m.parentNode.insertBefore(a, m)
-        })(window, document,’script’,’ga(‘create’, ‘<
-        track - code >’, ‘auto’)
-
-        ga(‘send’, ‘pageview’)
-
-
-    </script>
 
 
 </head>
@@ -101,14 +95,14 @@
         <div class="row">
             <div class="col-md-12">
                 {#                <img class="img-fluid d-block mx-auto w-50" src="static/assets/poslitesty_cerny.png">#}
-                <p class="lead text-center">Aplikace, která učitelům umožní <b>strojově setřídit opravené
+                <p class="lead text-center">Aplikace, která učitelům umožní <b>strojově seřadit opravené
                     zadání/písemky</b> a poskytne <b>známky studentů</b> ke stažení.
                     Stačí, když studenti vyplní <i>podpisovou hlavičku</i> a vy jako učitel vyplníte <i>výslednou
                         známku</i>.
                     Naše aplikace pak opravené zadání/písemky setřídí dle čísla studenta a
-                    vygeneruje <b>seznam známek ze zadání/písemky</b> ke všem studentům.</p>
-                <p class="lead text-center">Tenhle seznam je možné vložit do školních aplikací jako je <b>Moodle,
-                    Edupage, Bakálři</b> nebo jakákoli školní aplikace podporující import .csv souboru se známkami.</p>
+                    vygeneruje <b>seznam známek ze zadání/písemky</b> pro všechny studenty.</p>
+                <p class="lead text-center">Tento seznam je možné vložit do školních aplikací jako je <b>Moodle,
+                    Edupage, Bakaláři</b> nebo do jakékoliv školní aplikace podporující import .csv souboru se známkami.</p>
             </div>
         </div>
 
@@ -176,19 +170,19 @@
             <div class="col-md-4">
                 <h1 class="text-left">Vytvoření podpisové hlavičky</h1>
                 <p class="text-left text-bold text-body" style="">Prvním krokem je vytvořit si vlastní test s vynecháním
-                    malého místa v horní části první strany. Uložit jako PDF a následně stačí pouze nahrát do naší
-                    aplikace. Aplikace na test přidá podpisovú hlavičku a zašle Vám zpět PDF s aplikovaným vzorem.</p>
+                    malého místa v horní části první strany, následně uložit jako PDF a nahrát do naší
+                    aplikace. Aplikace na test přidá podpisovou hlavičku a zašle Vám zpět PDF s aplikovaným vzorem.</p>
             </div>
             <div class="col-md-4">
                 <h1 class="text-left">Vyhodnocení testů</h1>
                 <p class="text-left text-richard">Na začátku testu student vybarví kolečka podle identifikačního čísla,
-                    to může být například pořadí v třídní knize. Pak příjde na řadu práce učitele, který po opravě testu
+                    například pořadí v třídní knize. Pak přijde na řadu práce učitele, který po opravě testu
                     stejným způsobem vyplní tabulku s počtem bodů a výslednou známkou.</p>
             </div>
             <div class="col-md-4">
                 <h1 class="text-left">Zaslání výsledků</h1>
                 <p class="text-left" style="">Dalším krokem je naskenovat testy do PDF, které se nahraje do naší
-                    aplikace a ta už automaticky roztřídí, rozešle testy jejich pisateům a uloží do systému k
+                    aplikace, ta testy automaticky roztřídí, rozešle testy jejich pisatelům/řešitelům a zároveň je uloží do systému k
                     archivaci.</p>
             </div>
         </div>
@@ -224,7 +218,7 @@
     <div class="container">
         <div class="row">
             <div class="mx-auto col-lg-5 col-md-7 col-10">
-                <h1>Stáhni podpisovú hlavičku</h1>
+                <h1>Stáhni podpisovou hlavičku</h1>
 
                 {#  <a href="directory\test.txt" download="test"><button type=button">My Button</button></a>#}
                 <a href="/uploads/overlay_template" class="btn btn-primary" href="#">Stáhnout</a>
@@ -251,8 +245,8 @@
         <div class="row mb-3">
             <div class="text-center mx-auto p-4 col-lg-6 col-md-10 rounded" style="">
                 <h2 class="text-body">Přidat podpisovou hlavičku do PDF</h2>
-                <p class="text-body">Systém automaticky přiřadí podpisovú hlavičku na správné místo na první straně souboru a
-                    následně jej zašle zpátky.</p>
+                <p class="text-body">Systém automaticky přiřadí podpisovou hlavičku na správné místo na první straně souboru a
+                    následně daný soubor zašle zpátky.</p>
             </div>
         </div>
         <div class="row">
@@ -332,10 +326,10 @@
         <div class="row">
             <div class="col-md-12">
                 <p class="lead text-center">Nebojte se ji vyzkoušet, je bezplatná a stačí jen pár jednoduchých
-                    kliků.</p>
-                <p class="lead text-center">Naše aplikace je pod svobodnou licencí (opensource), takže ji můžete
-                    stáhnout a upravit podle svých potřeb. Aplikace má mnoho použití, ale předností jsou velké skupinové
-                    testy. Naše zaměření je však taky pro střední a základní školy.</p>
+                    kliknutí.</p>
+                <p class="lead text-center">Naše aplikace je pod svobodnou licencí (opensource), takže si ji můžete
+                    stáhnout a upravit podle svých potřeb. Má mnoho použití, ale její předností jsou velké skupinové
+                    testy. Může se však taky použít pro testy základních a středních škol.)</p>
 
             </div>
         </div>
@@ -352,7 +346,7 @@
         <div class="row mb-3">
             <div class="text-center mx-auto p-4 col-lg-6 col-md-10 rounded" style="">
                 <h2 class="text-body" id="sken_pdf">Zašli opravené testy v PDF</h2>
-                <p class="text-body">&nbsp;Budou roztřízeny podle ID studenta, uloženy do systému a výsledky budou
+                <p class="text-body">&nbsp;Budou roztříděny podle ID studenta, uloženy do systému a výsledky budou
                     rozeslány mezi studenty a jejich rodiče.</p>
             </div>
         </div>
@@ -427,8 +421,8 @@
         <div class="row">
             <div class="mx-auto col-lg-5 col-md-7 col-10">
                 <h1>Propojit s aplikacemi</h1>
-                <p class="mb-3">Naše aplikace se dá propojit se všemi školními systémy. Jako jsou Edupage, Bakaláři,
-                    Moodle a dokonce i Váš osobní systém si připojíte, protože naše aplikace je open source.</p>
+                <p class="mb-3">Naše aplikace se dá propojit se všemi školními systémy. Jako je Edupage, Bakaláři, nebo
+                    Moodle. Vzhledem k tomu, že aplikace je open-source, si k ní můžete dokonce připojit i svůj osobní systém.</p>
 {#                <a class="btn btn-primary mx-1" href="#">Edupage</a>#}
 {#                <a class="btn btn-primary mx-1" href="#">Bakaláři</a>#}
 {#                <a class="btn btn-primary mx-1" href="#">Moodle</a>#}
