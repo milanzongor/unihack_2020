@@ -39,18 +39,18 @@ There is wide range for improvement in our app. We would be grad for anybody, wh
    * enrich emnist dataset by letters with diacritics 
    * Add second clasifier, that would recognize diacritics  / accute(') / carron(ˇ) / none  / 
    * Create our own, small dataset (maybe adding the diacritics to current dataset)
-    and use methods here: https://arxiv.org/pdf/1904.08095.pdf
+    and use methods from here: https://arxiv.org/pdf/1904.08095.pdf
     
 #### Web related
  * [x] Write functional web communication.
- * [ ] Get rid of the assets file structure!!! IMPORTANT - not good
- * [ ] Fix Flask
+ * [x] Get rid of the assets file structure!!! IMPORTANT - not good
+ * [x] Fix Flask
  * [ ] Asynchronous file upload (maybe skip to next)
  * [ ] Rewrite the application into django
 
 ## Authors
 
-* **Samuel Fabo** - *web app developemet* - developed the Flask application
+* **Samuel Fabo** - *web app developemet; devOps* - developed the Flask application
 * **Jiri Hanus** - *backend developement* - developed .pdf hierarchy functions
 * **Richard Stetka** - *graphic designer* - design of header, created web page in Pingendo
 * **Petra Rudolfova** - *graphic designer* - design of logo, created video about app
