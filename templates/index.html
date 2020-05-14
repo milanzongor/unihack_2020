@@ -2,280 +2,550 @@
 <html>
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- PAGE settings -->
-  <link rel="icon" href="https://templates.pingendo.com/assets/Pingendo_favicon.ico">
-  <title>Landing</title>
-  <meta name="description" content="Wireframe design of a landing page by Pingendo">
-  <meta name="keywords" content="Pingendo bootstrap example template wireframe landing">
-  <meta name="author" content="Pingendo">
-  <!-- CSS dependencies -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
-  <link rel="stylesheet" href="static/wireframe.css">
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-166125022-1"></script>
+	<script>
+  window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+        gtag('config', 'UA-166125022-1');
+	</script>
+
+
+
+
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- PAGE settings -->
+    <title>Pošli Testy</title>
+    <meta name="description"
+          content="Aplikace, která učitelum umožní strojově seřadit opravené zadání/písemky a poskytne známky studentú ke stažení. Stačí, když studenti vyplní podpisovou hlavičku a naše aplikace zadání roztřídí dle čísla. Takisto vygeneruje seznam známek pro všechny studenty. Tenhle seznam je možné vložit do školních stránek jako je Moodle, Edupage, Bakalri.cz n.j.">
+    <meta name="keywords" content="Pošli testy aplikace učitel učitelé písemky písemka zadání domácí ukol ">
+    <meta name="author"
+          content="Petra Rudolfová - video & dizajn, Richard Štětka - Web dizajn, Jiří Hanuš - backend, Milan Zongor - backend a rozpoznávání znakú OMR, Samuel Fabo - DevOps, lepení a ladění aplikace">
+    <!-- CSS dependencies -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+          type="text/css">
+    <link rel="stylesheet" href="static/wireframe.css">
+
+
 </head>
 
 <body class="">
-  <nav class="navbar navbar-expand-md navbar-dark bg-primary" style="">
-    <div class="container justify-content-center"> <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbar9">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse text-center justify-content-center" id="navbar9">
-        <ul class="navbar-nav">
-          <li class="nav-item mx-2 text-dark"> <a class="nav-link text-dark" href="#zašli pdf">Zašli opravené testy v PDF</a> </li>
-          <li class="nav-item mx-2 text-light text-center"> <a class="nav-link text-dark" href="#stick_pdf">Přidat šablonu do PDF</a> </li>
-          <li class="nav-item mx-2 text-dark"> <a class="nav-link text-dark" href="#tým">Tým</a> </li>
-          <li class="nav-item text-dark mx-2 mr-3"> <a class="nav-link text-dark" href="#video">Video</a> </li>
-        </ul>
-        <img class="d-block img-fluid mx-0 px-0" style="" src="static/assets/poslitesty_cerny2.png" width="100" height="100">
-      </div>
-    </div>
-  </nav>
-  <div class="py-5 text-center text-md-right" style="	background-image: url(static/assets/2.0.jpg);	background-position: right bottom;	background-size: cover;	background-repeat: repeat;	background-attachment: fixed;">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <img class="img-fluid d-block mx-auto w-50" src="static/assets/poslitesty_cerny.png">
-          <p class="lead text-center">Webová aplikace, kterou si lidé mohou stáhnout pod svobodnou licencí (opensource), nahrát a upravit podle svých potřeb. Aplikace má mnoho použití, ale předností jsou velké skupinové testy a zaměření pro střední a základní školy.</p>
+<nav class="navbar navbar-expand-md navbar-dark bg-primary" style="">
+    <div class="container justify-content-center">
+        <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse"
+                data-target="#navbar9">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse text-center justify-content-center" id="navbar9">
+            <ul class="navbar-nav">
+                <li class="nav-item text-dark mx-2 mr-3">
+                    <a class="nav-link text-dark" href="#video">O čem tato aplikace je?</a></li>
+                <li class="nav-item mx-2 text-dark">
+                    <a class="nav-link text-dark" href="#zašli_pdf">Zašli opravené testy v PDF</a></li>
+                <li class="nav-item mx-2 text-light text-center">
+                    <a class="nav-link text-dark" href="#nalep_pdf">Přidat podpisovou hlavičku do PDF</a></li>
+                <li class="nav-item mx-2 text-dark">
+                    <a class="nav-link text-dark" href="#tym">Tým</a></li>
+            </ul>
+            <img class="d-block img-fluid mx-0 px-0" style="" src="static/assets/poslitesty_cerny2.png" width="100"
+                 height="100">
         </div>
-      </div>
     </div>
-  </div>
-  <div class="py-5">
-    <div class="container">
-      <div class="row">
-        <div class="p-4 col-lg-4 col-md-6"><a class="btn btn-lg w-100 align-items-center d-flex justify-content-center flex-row h-100 text-uppercase btn-primary text-white" href="#zašli pdf" style="	background-image: url(static/assets/buttony.jpg);	background-position: left top;	background-size: 100%;	background-repeat: repeat;">Zašli<br>opravené<br>testy<br>v PDF</a></div>
-        <div class="p-4 col-lg-4 col-md-6"><img class="img-fluid d-block w-100" src="static/assets/poslitesty_cerny.png"></div>
-        <div class="p-4 col-lg-4"><a class="btn btn-primary btn-lg w-100 align-items-center d-flex justify-content-center flex-row h-100 text-white text-uppercase text-center" href="#stick_pdf" style="	background-image: url(static/assets/buttony.jpg);	background-position: left top;	background-size: 100%;	background-repeat: repeat;">Přidat<br>šablonu<br>do PDF</a></div>
-      </div>
-    </div>
-  </div>
-  <div class="py-5 text-center text-md-right" style="	background-image: url(static/assets/2.0.jpg);	background-position: right bottom;	background-size: cover;	background-repeat: repeat;	background-attachment: fixed;">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4">
-          <h1 class="text-left">Vytvoření šablony</h1>
-          <p class="text-left text-bold text-body" style="">Prvním krokem je vytvořit si vlastní test s vynecháním malého místa v horní části první strany. Uložit jako PDF a následně stačí pouze nahrát do naší aplikace. Aplikace na test přidá šablonu a zašle Vám zpět PDF s aplikovaným vzorem.</p>
-        </div>
-        <div class="col-md-4">
-          <h1 class="text-left">Vyhodnocení testů</h1>
-          <p class="text-left text-richard">Na začátku testu student vybarví kolečka podle identifikačního čísla, to může být například pořadí v třídní knize. Pak příjde na řadu práce učitele, který po opravě testu stejným způsobem vyplní tabulku s počtem bodů a výslednou známkou.</p>
-        </div>
-        <div class="col-md-4">
-          <h1 class="text-left">Zaslání výsledků</h1>
-          <p class="text-left" style="">Dalším krokem je naskenovat testy do PDF, které se nahraje do naší aplikace a ta už automaticky roztřídí, rozešle testy jejich pisateům a uloží do systému k archivaci.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="py-5">
-    <div class="container">
-      <div class="row">
-        <div class="text-center mx-auto col-md-12">
-          <h1>Vzorové vyplnění šablony</h1>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-6 p-3"> <img class="img-fluid d-block" src="static/assets/fotky web3.jpg"> </div>
-        <div class="col-md-6 p-3"> <img class="img-fluid d-block" src="static/assets/fotky web4.jpg"> </div>
-      </div>
-    </div>
-  </div>
-  <div class="py-5 text-center text-md-right" style="	background-image: url(static/assets/2.0.jpg);	background-position: right bottom;	background-size: cover;	background-repeat: repeat;	background-attachment: fixed;">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4"></div>
-        <div class="col-md-4"></div>
-        <div class="col-md-4"></div>
-      </div>
-    </div>
-  </div>
-  <div class="py-5 text-center">
-    <div class="container">
-      <div class="row">
-        <div class="mx-auto col-lg-5 col-md-7 col-10">
-          <h1>Stáhni šablonu</h1>
-          <a class="btn btn-primary" href="#">Stáhnout</a>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="py-5 text-center text-md-right" style="	background-image: url(static/assets/2.0.jpg);	background-position: right bottom;	background-size: cover;	background-repeat: repeat;	background-attachment: fixed;">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4"></div>
-        <div class="col-md-4"></div>
-        <div class="col-md-4"></div>
-      </div>
-    </div>
-  </div>
-  <div class="py-5" style="" id="zašli pdf">
-    <div class="container">
-      <div class="row mb-3">
-        <div class="text-center mx-auto p-4 col-lg-6 col-md-10 rounded" style="">
-          <h2 class="text-body" id="sken_pdf">Zašli opravené testy v PDF</h2>
-          <p class="text-body">&nbsp;Budou roztřízeny podle ID studenta, uloženy do systému a výsledky budou rozeslány mezi studenty a jejich rodiče.</p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-6 offset-md-3" style="">
+</nav>
 
-          <!-- <a class="btn btn-secondary d-flex flex-column justify-content-center flex-grow-1 align-items-center text-light" href="#" sty<!-- le="	box-shadow: gray 0px 4px 5px;	background-image: url(static/assets/buttony.jpg);	background-position: top left;	background-size: 100%;	background-repeat: repeat;">Nahrát soubor</a> -->
 
-          <form class="btn btn-secondary d-flex flex-column justify-content-center flex-grow-1 align-items-center" method=post enctype=multipart/form-data>
-                <input type=file name=file_scan>
-                <div class="col-12 form-group">
-                    <input
-                        type=submit value="Nahrát soubor">
-                </div>
-            </form>
-
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="py-5 text-center text-md-right" style="	background-image: url(static/assets/2.0.jpg);	background-position: right bottom;	background-size: cover;	background-repeat: repeat;	background-attachment: fixed;">
+<div class="py-5 text-center text-md-right"
+     style="	background-image: url(static/assets/2.0.jpg);	background-position: right bottom;
+     background-size: cover;	background-repeat: repeat;	background-attachment: fixed;">
     <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <h1 class="mb-3 text-center">Naše aplikace Vám ulehčí práci!</h1>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12">
-          <p class="lead text-center">Nebojte se ji vyzkoušet, je bezplatná a stačí jen pár jednoduchých kliků.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="py-5" id="stick_pdf">
-    <div class="container">
-      <div class="row mb-3">
-        <div class="text-center mx-auto p-4 col-lg-6 col-md-10 rounded" style="">
-          <h2 class="text-body">Přidat šablonu do PDF</h2>
-          <p class="text-body">Systém automaticky přiřadí šablonu na správné místo na první straně souboru a následně jej zašle zpátky.</p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-6 offset-md-3" style="">
-<!-- 
-          <a class="btn btn-secondary d-flex flex-column justify-content-center align-items-stretch flex-grow-1 text-light" href="#" style="	box-shadow: 0px 4px 5px  gray;	background-image: url(static/assets/buttony.jpg);	background-position: top left;	background-size: 100%;	background-repeat: repeat;">Nahrát soubor</a> -->
-
-          <form class="btn btn-secondary d-flex flex-column justify-content-center flex-grow-1 align-items-center"
-                      method=post enctype=multipart/form-data>
-                    <input type=file name=file_header>
-                    <div class="col-12 form-group">
-                        <input
-                                type=submit value="Nahrát soubor">
-                    </div>
-                </form>
-
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="py-5 text-center text-md-right" style="	background-image: url(static/assets/2.0.jpg);	background-position: right bottom;	background-size: cover;	background-repeat: repeat;	background-attachment: fixed;" id="video">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="row">
+        <div class="row">
             <div class="col-md-12">
-              <div class="row">
-                <div class="mx-auto col-md-10" style="">
-                  <h3 class="display-1 text-center">Očem náš projekt je?</h3>
-                  <p class="lead text-center" contenteditable="true"></p>
-                </div>
-              </div>
+                <img class="img-fluid d-block mx-auto w-50" src="static/assets/poslitesty_cerny.png">
             </div>
-          </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12">
-          <div class="embed-responsive embed-responsive-16by9 rounded">
-            <iframe src="https://www.youtube.com/embed/1LL36nOCNlc" allowfullscreen="" class="embed-responsive-item"></iframe>
-          </div>
-        </div>
-      </div>
     </div>
-  </div>
-  <div class="py-5 text-center">
+</div>
+
+
+<div class="py-5 text-center text-md-right"
+     style="	background-image: url(static/assets/2.0.jpg);	background-position: right bottom;
+     background-size: cover;	background-repeat: repeat;	background-attachment: fixed;"
+     id="video">
     <div class="container">
-      <div class="row">
-        <div class="mx-auto col-lg-5 col-md-7 col-10">
-          <h1>Propojit s aplikacemi</h1>
-          <p class="mb-3">Naše aplikace se dá propojit se všemi školními systémy. Jako jsou Edupage, Bakaláři, Moodle a dokonce i Váš osobní systém si připojíte, protože naše aplikace je open source.</p> <a class="btn btn-primary mx-1" href="#">Edupage</a><a class="btn btn-primary mx-1" href="#">Bakaláři</a><a class="btn btn-primary mx-1" href="#">Moodle</a><a class="btn btn-primary mx-1" href="#">Vlastní systém</a>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="mx-auto col-md-10" style="">
+                                <h3 class="display-1 text-center">O čem to vlastně je?</h3>
+                                <p class="lead text-center" contenteditable="true"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                {#                <img class="img-fluid d-block mx-auto w-50" src="static/assets/poslitesty_cerny.png">#}
+                <p class="lead text-center">Aplikace, která učitelům umožní <b>strojově seřadit opravené
+                    zadání/písemky</b> a poskytne <b>známky studentů</b> ke stažení.
+                    Stačí, když studenti vyplní <i>podpisovou hlavičku</i> a vy jako učitel vyplníte <i>výslednou
+                        známku</i>.
+                    Naše aplikace pak opravené zadání/písemky setřídí dle čísla studenta a
+                    vygeneruje <b>seznam známek ze zadání/písemky</b> pro všechny studenty.</p>
+                <p class="lead text-center">Tento seznam je možné vložit do školních aplikací jako je <b>Moodle,
+                    Edupage, Bakaláři</b> nebo do jakékoliv školní aplikace podporující import .csv souboru se známkami.</p>
+            </div>
+        </div>
+
+        <div class="py-5 text-center text-md-right"
+             style="	background-image: url(static/assets/2.0.jpg);	background-position: right bottom;
+     background-size: cover;	background-repeat: repeat;	background-attachment: fixed;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-4"></div>
+                    <div class="col-md-4"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="mx-auto col-md-10" style="">
+                                <h6 class="display-1 text-center">Příběh učitela Karla:</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="embed-responsive embed-responsive-16by9 rounded">
+                    <iframe src="https://www.youtube.com/embed/1LL36nOCNlc" allowfullscreen=""
+                            class="embed-responsive-item"></iframe>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-  <div class="py-5 text-center text-md-right" style="	background-image: url(static/assets/2.0.jpg);	background-position: right bottom;	background-size: cover;	background-repeat: repeat;	background-attachment: fixed;">
+</div>
+
+
+<div class="py-5">
     <div class="container">
-      <div class="row">
-        <div class="col-md-4"></div>
-        <div class="col-md-4"></div>
-        <div class="col-md-4"></div>
-      </div>
+        <div class="row">
+            <div class="p-4 col-lg-4 col-md-6"><a
+                    class="btn btn-lg w-100 align-items-center d-flex justify-content-center flex-row h-100 text-uppercase btn-primary text-white"
+                    href="#zašli_pdf"
+                    style="	background-image: url(static/assets/buttony.jpg);	background-position: left top;
+                    background-size: 100%;	background-repeat: repeat;">Zaslat<br>opravené<br>testy</a></div>
+            <div class="p-4 col-lg-4 col-md-6"><img class="img-fluid d-block w-100"
+                                                    src="static/assets/poslitesty_cerny.png"></div>
+            <div class="p-4 col-lg-4"><a
+                    class="btn btn-primary btn-lg w-100 align-items-center d-flex justify-content-center flex-row h-100 text-white text-uppercase text-center"
+                    href="#nalep_pdf"
+                    style="	background-image: url(static/assets/buttony.jpg);	background-position: left top;
+                    background-size: 100%;	background-repeat: repeat;">Přidat<br>podpisovou<br>hlavičku</a></div>
+        </div>
     </div>
-  </div>
-  <div class="py-5 text-center" id="tým">
+</div>
+<div class="py-5 text-center text-md-right"
+     style="	background-image: url(static/assets/2.0.jpg);	background-position: right bottom;
+     background-size: cover;	background-repeat: repeat;	background-attachment: fixed;">
     <div class="container">
-      <div class="row">
-        <div class="mx-auto col-md-12">
-          <h1 class="mb-3 text-uppercase">Vývojářský tým</h1>
+        <div class="row">
+            <div class="col-md-4">
+                <h1 class="text-left">Vytvoření podpisové hlavičky</h1>
+                <p class="text-left text-bold text-body" style="">Prvním krokem je vytvořit si vlastní test s vynecháním
+                    malého místa v horní části první strany, následně uložit jako PDF a nahrát do naší
+                    aplikace. Aplikace na test přidá podpisovou hlavičku a zašle Vám zpět PDF s aplikovaným vzorem.</p>
+            </div>
+            <div class="col-md-4">
+                <h1 class="text-left">Vyhodnocení testů</h1>
+                <p class="text-left text-richard">Na začátku testu student vybarví kolečka podle identifikačního čísla,
+                    například pořadí v třídní knize. Pak přijde na řadu práce učitele, který po opravě testu
+                    stejným způsobem vyplní tabulku s počtem bodů a výslednou známkou.</p>
+            </div>
+            <div class="col-md-4">
+                <h1 class="text-left">Zaslání výsledků</h1>
+                <p class="text-left" style="">Dalším krokem je naskenovat testy do PDF, které se nahraje do naší
+                    aplikace, ta testy automaticky roztřídí, rozešle testy jejich pisatelům/řešitelům a zároveň je uloží do systému k
+                    archivaci.</p>
+            </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-lg-4 col-6 p-4" style=""> <img class="img-fluid d-block mb-3 mx-auto rounded-circle" src="static/assets/samo.png" width="150" alt="Card image cap">
-          <h4> <b>Samuel Fabo</b></h4>
-          <p class="mb-0">web, programování</p>
-        </div>
-        <div class="col-lg-4 col-6 p-4" style=""> <img class="img-fluid d-block mb-3 mx-auto rounded-circle" src="static/assets/hhhh.jpg" width="150" alt="Card image cap">
-          <h4> <b>Jiří Hanuš</b></h4>
-          <p class="mb-0">Lídr týmu, programování</p>
-        </div>
-        <div class="col-lg-4 col-6 p-4" style=""> <img class="img-fluid d-block mb-3 mx-auto rounded-circle" src="static/assets/mmm.jpg" width="150">
-          <h4> <b>Milan Zongor</b></h4>
-          <p class="mb-0">programování</p>
-        </div>
-      </div>
-      <div class="row d-flex justify-content-center">
-        <div class="col-lg-6 col-6 p-4" style=""> <img class="img-fluid d-block mb-3 mx-auto rounded-circle" src="static/assets/pppp.jpg" width="150" alt="Card image cap" style="">
-          <h4> <b>Petra Rudolfová</b></h4>
-          <p class="mb-0">Grafika</p>
-        </div>
-        <div class="col-lg-6 col-6 p-4" style=""> <img class="img-fluid d-block mb-3 mx-auto rounded-circle" src="static/assets/richard.jpg" width="150">
-          <h4> <b>Richard Štětka</b></h4>
-          <p class="mb-0">Web design</p>
-        </div>
-      </div>
     </div>
-  </div>
-  <div class="py-5 text-center text-md-right" style="	background-image: url(static/assets/2.0.jpg);	background-position: right bottom;	background-size: cover;	background-repeat: repeat;	background-attachment: fixed;">
+</div>
+<div class="py-5">
     <div class="container">
-      <div class="row">
-        <div class="col-md-4"></div>
-        <div class="col-md-4"></div>
-        <div class="col-md-4"></div>
-      </div>
+        <div class="row">
+            <div class="text-center mx-auto col-md-12">
+                <h1>Vzorové vyplnění podpisové hlavičky</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class=""><img class="img-fluid d-block" src="static/assets/podpisova_hlavicka.png"></div>
+        </div>
+        <div class="row">
+            <div class=""><img class="img-fluid d-block" src="static/assets/podpisova_hlavicka_vyplnena.png"></div>
+        </div>
     </div>
-  </div>
-  <div class="py-3 bg-primary" style="">
+</div>
+<div class="py-5 text-center text-md-right"
+     style="	background-image: url(static/assets/2.0.jpg);	background-position: right bottom;
+     background-size: cover;	background-repeat: repeat;	background-attachment: fixed;">
     <div class="container">
-      <div class="row d-flex justify-content-between">
-        <div class="col-lg-4 col-md-6">
-          <p class="mb-0 text-dark">Copyright - Československo na Taiwanu</p>
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4"></div>
+            <div class="col-md-4"></div>
         </div>
-        <div class="col-lg-4 col-md-6">
-          <p class="mb-0 text-right text-dark">2020 - Československo na Taiwanu</p>
-        </div>
-      </div>
     </div>
-  </div>
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous" style=""></script>
-  <pingendo onclick="window.open('https://pingendo.com/', '_blank')" style="cursor:pointer;position: fixed;bottom: 20px;right:20px;padding:4px;background-color: #00b0eb;border-radius: 8px; width:220px;display:flex;flex-direction:row;align-items:center;justify-content:center;font-size:14px;color:white">Made with Pingendo Free&nbsp;&nbsp;<img src="https://pingendo.com/site-assets/Pingendo_logo_big.png" class="d-block" alt="Pingendo logo" height="16"></pingendo>
+</div>
+<div class="py-5 text-center">
+    <div class="container">
+        <div class="row">
+            <div class="mx-auto col-lg-5 col-md-7 col-10">
+                <h1>Stáhni podpisovou hlavičku</h1>
+
+                {#  <a href="directory\test.txt" download="test"><button type=button">My Button</button></a>#}
+                <a href="/uploads/overlay_template" class="btn btn-primary" href="#">Stáhnout</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="py-5 text-center text-md-right"
+     style="	background-image: url(static/assets/2.0.jpg);	background-position: right bottom;
+     background-size: cover;	background-repeat: repeat;	background-attachment: fixed;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4"></div>
+            <div class="col-md-4"></div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="py-5" id="nalep_pdf">
+    <div class="container">
+        <div class="row mb-3">
+            <div class="text-center mx-auto p-4 col-lg-6 col-md-10 rounded" style="">
+                <h2 class="text-body">Přidat podpisovou hlavičku do PDF</h2>
+                <p class="text-body">Systém automaticky přiřadí podpisovou hlavičku na správné místo na první straně souboru a
+                    následně daný soubor zašle zpátky.</p>
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="mx-auto col-lg-0 col-md-0 col-0">
+                {#<a class="btn btn-secondary d-flex flex-column justify-content-center align-items-stretch flex-grow-1 text-light" href="#" style="	box-shadow: 0px 4px 5px  gray;	background-image: url(static/assets/buttony.jpg);	background-position: top left;	background-size: 100%;	background-repeat: repeat;">Nahrát soubor</a> -->#}
+
+
+                <!-- Button trigger modal -->
+                <button type="button"
+                        class="btn btn-secondary d-flex flex-column justify-content-center align-items-stretch flex-grow-1 text-light"
+                        href="#"
+                        style="	box-shadow: 0px 4px 5px  gray;	background-image: url(static/assets/buttony.jpg);
+                    background-position: top left;	background-size: 100%;	background-repeat: repeat;"
+                        data-toggle="modal" data-target="#headerModal">
+                    Přidat podpisovou hlavičku do PDF
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="headerModal" tabindex="-1" role="dialog" aria-labelledby="headerModalLabel"
+                     aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="headerModalLabel">Přidat podpisovou hlavičku do nahraného
+                                    PDF</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+
+                                <form class="d-flex flex-column justify-content-center flex-grow-1 align-items-center"
+                                      method=post enctype=multipart/form-data>
+                                    <input type=file name=file_header>
+                                    <div class="col-12 form-group">
+                                        <input
+                                                type=submit value="Nahrát soubor">
+                                    </div>
+                                </form>
+                                <hr>
+                                <h5>Pozor na typ souboru! Zatím podporujemez jen PDF.</h5>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Zavřít</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="py-5 text-center text-md-right"
+     style="	background-image: url(static/assets/2.0.jpg);	background-position: right bottom;	background-size: cover;	background-repeat: repeat;	background-attachment: fixed;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="mb-3 text-center">Naše aplikace Vám ulehčí práci!</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <p class="lead text-center">Nebojte se ji vyzkoušet, je bezplatná a stačí jen pár jednoduchých
+                    kliknutí.</p>
+                <p class="lead text-center">Naše aplikace je pod svobodnou licencí (opensource), takže si ji můžete
+                    stáhnout a upravit podle svých potřeb. Má mnoho použití, ale její předností jsou velké skupinové
+                    testy. Může se však taky použít pro testy základních a středních škol.)</p>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<div class="py-5" style="" id="zašli_pdf">
+    <div class="container">
+        <div class="row mb-3">
+            <div class="text-center mx-auto p-4 col-lg-6 col-md-10 rounded" style="">
+                <h2 class="text-body" id="sken_pdf">Zašli opravené testy v PDF</h2>
+                <p class="text-body">&nbsp;Budou roztříděny podle ID studenta, uloženy do systému a výsledky budou
+                    rozeslány mezi studenty a jejich rodiče.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="mx-auto col-lg-0 col-md-0 col-0">
+
+                <!-- Button trigger modal -->
+                <button type="button"
+                        class="btn btn-secondary d-flex flex-column justify-content-center flex-grow-1 align-items-center text-light"
+                        href="#"
+                        style="	box-shadow: 0px 4px 5px  gray;	background-image: url(static/assets/buttony.jpg);
+                    background-position: top left;	background-size: 100%;	background-repeat: repeat;"
+                        data-toggle="modal" data-target="#scanModal">
+                    Zaslat opravené testy
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="scanModal" tabindex="-1" role="dialog" aria-labelledby="scanModalLabel"
+                     aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="scanModalLabel">Nahrát opravené testy</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+
+                                <form class="d-flex flex-column justify-content-center flex-grow-1 align-items-center"
+                                      method=post enctype=multipart/form-data>
+                                    <input type=file name=file_scan>
+                                    <div class="col-12 form-group">
+                                        <input
+                                                type=submit value="Nahrát soubor">
+                                    </div>
+                                </form>
+                                <hr>
+                                <h5>Pozor na typ souboru! Zatím podporujeme jen PDF.</h5>
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Zavřít</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="py-5 text-center text-md-right"
+     style="	background-image: url(static/assets/2.0.jpg);	background-position: right bottom;
+     background-size: cover;	background-repeat: repeat;	background-attachment: fixed;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4"></div>
+            <div class="col-md-4"></div>
+        </div>
+    </div>
+</div>
+
+
+{#<iframe width="560" height="315" src="https://www.youtube.com/embed/1LL36nOCNlc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>#}
+
+
+<div class="py-5 text-center">
+    <div class="container">
+        <div class="row">
+            <div class="mx-auto col-lg-5 col-md-7 col-10">
+                <h1>Propojit s aplikacemi</h1>
+                <p class="mb-3">Naše aplikace se dá propojit se všemi školními systémy. Jako je Edupage, Bakaláři, nebo
+                    Moodle. Vzhledem k tomu, že aplikace je open-source, si k ní můžete dokonce připojit i svůj osobní systém.</p>
+{#                <a class="btn btn-primary mx-1" href="#">Edupage</a>#}
+{#                <a class="btn btn-primary mx-1" href="#">Bakaláři</a>#}
+{#                <a class="btn btn-primary mx-1" href="#">Moodle</a>#}
+{#                <a class="btn btn-primary mx-1" href="#">Vlastní systém</a>#}
+
+
+
+
+                <button type="button" class="btn btn-primary mx-1" data-toggle="modal" data-target="#exampleModal">Moodle
+                </button>
+                <button type="button" class="btn btn-primary mx-1" data-toggle="modal" data-target="#exampleModal">Edupage
+                </button>
+                <button type="button" class="btn btn-primary mx-1" data-toggle="modal" data-target="#exampleModal">Bakaláři
+                </button>
+                <button type="button" class="btn btn-primary mx-1" data-toggle="modal" data-target="#exampleModal">Vlastní systém
+                </button>
+
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                     aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Už brzy!</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <h5>Naši vývojáři tvrdě a zdarma pracují na řešeních jak přidat známky do vašeho systému.</h5>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Zavřít</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="py-5 text-center text-md-right"
+     style="	background-image: url(static/assets/2.0.jpg);	background-position: right bottom;	background-size: cover;	background-repeat: repeat;	background-attachment: fixed;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4"></div>
+            <div class="col-md-4"></div>
+        </div>
+    </div>
+</div>
+<div class="py-5 text-center" id="tym">
+    <div class="container">
+        <div class="row">
+            <div class="mx-auto col-md-12">
+                <h1 class="mb-3 text-uppercase">Vývojářský tým</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-6 p-4" style=""><img class="img-fluid d-block mb-3 mx-auto rounded-circle"
+                                                          src="static/assets/samo.png" width="150" alt="Card image cap">
+                <h4><b><a href="https://www.samuelfabo.sk">Samuel Fabo</a></b></h4>
+                <p class="mb-0">Web; DevOps</p>
+            </div>
+            <div class="col-lg-4 col-6 p-4" style=""><img class="img-fluid d-block mb-3 mx-auto rounded-circle"
+                                                          src="static/assets/hhhh.jpg" width="150" alt="Card image cap">
+                <h4><b><a href="http://www.mistrhanus.cz">Jiří Hanuš</a></b></h4>
+                <p class="mb-0">Lídr týmu; Web - backend; PR</p>
+            </div>
+            <div class="col-lg-4 col-6 p-4" style=""><img class="img-fluid d-block mb-3 mx-auto rounded-circle"
+                                                          src="static/assets/mmm.jpg" width="150">
+                <h4><b><a href="https://www.linkedin.com/in/milan-zongor-842b38127/">Milan Zongor</a></b></h4>
+                <p class="mb-0">Strojové zpracování hlavičky - OpenCV</p>
+            </div>
+        </div>
+        <div class="row d-flex justify-content-center">
+            <div class="col-lg-6 col-6 p-4" style=""><img class="img-fluid d-block mb-3 mx-auto rounded-circle"
+                                                          src="static/assets/pppp.jpg" width="150" alt="Card image cap"
+                                                          style="">
+                <h4><b>Petra Rudolfová</b></h4>
+                <p class="mb-0">Grafika; dizajn</p>
+            </div>
+            <div class="col-lg-6 col-6 p-4" style=""><img class="img-fluid d-block mb-3 mx-auto rounded-circle"
+                                                          src="static/assets/richard.jpg" width="150">
+                <h4><b>Richard Štětka</b></h4>
+                <p class="mb-0">Web; dizajn</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="py-5 text-center text-md-right"
+     style="	background-image: url(static/assets/2.0.jpg);	background-position: right bottom;	background-size: cover;	background-repeat: repeat;	background-attachment: fixed;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4"></div>
+            <div class="col-md-4"></div>
+        </div>
+    </div>
+</div>
+<div class="py-3 bg-primary" style="">
+    <div class="container">
+        <div class="row d-flex justify-content-between">
+            <div class="col-lg-4 col-md-6">
+                <p class="mb-0 text-dark"><a href="https://github.com/milanzongor/unihack_2020">Copyright -
+                    Československo na Taiwanu</a></p>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <p class="mb-0 text-right text-dark"><a href="https://www.unihack.cz/ocenene-tymy">2020 - Československo
+                    na Taiwanu, UNIHACK.cz</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"
+        style=""></script>
 </body>
 
 </html>
