@@ -1,5 +1,5 @@
 imutils==0.5.3
-numpy==1.18.3
+numpy==1.22.0
 Flask==1.1.2
 Flask_Scss==0.5
 opencv_python==4.2.0.34
