@@ -4,4 +4,4 @@ Flask==1.1.2
 Flask_Scss==0.5
 opencv_python==4.2.0.34
 pdf2image==1.13.1
-PyPDF2==1.26.0
+PyPDF2==1.27.9
